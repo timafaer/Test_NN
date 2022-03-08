@@ -23,7 +23,7 @@ public:
 
 	T operator[](int n) {
 		if (n >= len||n<0)
-			throw;
+			throw;// затычка под любой комментарий 
 		return buf[n];
 	}
 
@@ -38,7 +38,7 @@ struct Elem {
 
 template<class T>
 class ListBuff{
-	Elem<T>* first;
+	Elem<T>* first;// можно хранить указатель на последний элемент, это всего лишь для добавления памяти
 	Elem<T>* cur;
 	Elem<T>* Get;
 	int size;
@@ -61,14 +61,14 @@ public:
 			if(i>=size)
 				tmp->next = new Elem<T>;
 			if (i == size)
-				cur = tmp;
+				cur = tmp;//переброс записи на первый добавленный элемент
 			tmp = tmp->next;
 		}
 		tmp->next = first;
 	}
 
 	void write(const T& smth) {
-		cur->me = smth;
+		cur->me = smth;// можно реализовать антизапись если еще не все считалось (в задании не сказанно точно или я не увидел)
 		cur = cur->next;
 	}
 
